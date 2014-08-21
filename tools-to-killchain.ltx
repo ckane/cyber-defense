@@ -1,0 +1,118 @@
+\documentclass[style=elcolors, mode=present]{powerdot}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{epsfig}
+\usepackage{anyfontsize}
+\usepackage{url}
+\pdsetup{
+ lf=Cyber Defense Overview,
+ rf=Security Tool Alignment to Cyber Kill Chain\cite{LMCO:KillChain}
+}
+\title{Security Tool Alignment to Cyber Kill Chain\cite{LMCO:KillChain}}
+\author{Coleman Kane\\Coleman.Kane@ge.com}
+\begin{document}
+\maketitle
+
+\begin{slide}{Attack Landscape}
+\begin{description}
+\item[Extranet] The networked world outside your network with which your users require access. Generally not under your control.
+\item[Intranet] The networked world inside your perimeter, which is under your control
+\item[Host] A node within a network, consisting of servers, PCs, routers, etc.
+\item[Perimeter] The network devices and systems which are connected to at least one extranet as well as an intranet. Generally
+                 these act as monitors, gateways, and service providers
+\item[Endpoint] A type of {\em host} which is the connection between a user and your {\em intranet}
+\end{description}
+\end{slide}
+
+\begin{slide}{Network Architecture}
+\begin{itemize}
+\item Web servers providing content to customers, installed at perimeter
+\item Extranet not "layer 3"-routable by non-Perimeter Intranet devices
+\item HTTP proxy server installed at Perimeter to provide users with Extranet connectivity
+\item Endpoints installed in Intranet
+\item Remote users may connect to a VPN system, installed at the Perimeter, which connects their
+      endpoint to the Intranet network
+\item Perimeter devices are "layer 3"-routable by all Intranet hosts, and vice-versa
+\end{itemize}
+\end{slide}
+
+\begin{slide}{Visual}
+\begin{figure}
+\epsfig{file=network1.eps,height=2.0in}
+\end{figure}
+\end{slide}
+
+\begin{slide}{Cyber Kill Chain\cite{LMCO:KillChain} Alignment (1-4)}
+Alignment against phases 1-4, where attacker attempts to gain access
+
+\vspace{0.05in}
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+{\bf\tiny Reconnaissance} & {\bf\tiny Weaponization} & {\bf\tiny Delivery} & {\bf\tiny Exploit} \\
+\hline \hline
+{\tiny VPN Server logs} & & {\tiny Perimeter Proxy} & {\tiny Perimeter Proxy} \\
+\hline
+{\tiny Mailserver logs} & & {\tiny Mailserver Logs} & {\tiny Host Anti-Virus} \\
+\hline
+{\tiny Webserver logs} & {\tiny E-mail Scanning} & {\tiny E-mail Scanning} & {\tiny E-mail Scanning} \\
+\hline
+\end{tabular}
+
+\vspace{0.05in}
+
+Metrics:
+\begin{itemize}
+\item \textbf{Best Coverage = 3}: Reconaissance, Delivery, \& Exploit phases
+\item \textbf{Worst Coverage = 1}: Weaponization phase
+\end{itemize}
+
+\end{slide}
+
+\begin{slide}{Cyber Kill Chain\cite{LMCO:KillChain} Alignment (5-7)}
+Alignment against phases 5-7, where attacker has gained some level of access
+
+\vspace{0.05in}
+
+\begin{tabular}{|c|c|c|}
+\hline
+{\bf\tiny Installation} & {\bf\tiny Command \& Control} & {\bf\tiny Actions on Objectives} \\
+\hline \hline
+ & & {\tiny Endpoint Remote Desktop Logs} \\
+\hline
+ & {\tiny Perimeter Proxy} & {\tiny Perimeter VPN Logs} \\
+\hline
+ & {\tiny Host Firewall} & {\tiny Host Firewall} \\
+\hline
+ & {\tiny Intranet Firewall} & {\tiny Intranet Firewall}\\
+\hline
+{\tiny Host Anti-Virus} & & {\tiny Host Anti-Virus}\\
+\hline
+\end{tabular}
+
+\vspace{0.05in}
+
+Metrics:
+\begin{itemize}
+\item \textbf{Best Coverage = 5}: Actions on Objectives phase
+\item \textbf{Worst Coverage = 1}: Installation phase
+\end{itemize}
+
+\end{slide}
+
+\begin{slide}{Cyber Kill Chain\cite{LMCO:KillChain} Alignment (conclusion)}
+\begin{itemize}
+\item Measure coverage points of failure/redundancy
+\item Identify per-tool coverage breadth
+ \begin{itemize}
+ \item \textbf{Broadest}: E-mail scanner (3), Perimeter Proxy (3), Host Anti-Virus (3)
+ \end{itemize}
+\item Not uncommon to have more coverage for higher phases, as risk increases so does investment
+\end{itemize}
+\end{slide}
+
+\begin{slide}{References}
+ \bibliographystyle{plain}
+ \bibliography{cyberdef}
+\end{slide}
+\end{document}

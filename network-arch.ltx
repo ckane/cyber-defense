@@ -1,0 +1,72 @@
+\documentclass[style=elcolors, mode=present]{powerdot}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{epsfig}
+\usepackage{anyfontsize}
+\usepackage{url}
+\pdsetup{
+ lf=Cyber Defense Overview,
+ rf=Network Architecture \& the Attack Landscape
+}
+\title{Network Architecture \& the Attack Landscape}
+\author{Coleman Kane\\Coleman.Kane@ge.com}
+\begin{document}
+\maketitle
+
+\begin{slide}{Network Topology}
+ For the sake of this course, the only one that matters is the "Star" topology. 99\% of networks you will encounter are Star-topology networks. 
+\end{slide}
+
+\begin{slide}{Device Terminology}
+ Key device terms to be used in this course
+ \begin{description}
+  \item[Bridge] Interconnects multiple devices, enabling them to communicate directly with one another on a common network.
+  \item[Router] "A router is used to route data packets between two networks."\cite{CompTech:NetGuide:NetDevs}
+  \item[Firewall] "Firewalls are mainly used as a means to protect an organization's internal network from those on the outside (internet)." "Firewalls are also used to limit the access of individuals on the internal network to services on the internet along with keeping track of what is done through the firewall."\cite{CompTech:NetGuide:Firewalls}
+ \end{description}
+\end{slide}
+
+\begin{slide}{Device Terminology (cont.)}
+ Key device terms to be used in this course
+ \begin{description}
+  \item[Server] A device installed on the network which is providing resources to users with access to that network
+  \item[Gateway] "A gateway can translate information between different network data formats or network architectures"\cite{CompTech:NetGuide:NetDevs}
+  \item[Endpoint] Used to describe a computer, typically a PC, on the network which is regularly connecting a user to the network, and possibly the Internet.
+ \end{description}
+\end{slide}
+
+\begin{slide}{Network Models}
+ Two most commonly used network models
+ \begin{description}
+  \item[OSI Model] Seven layer architecture, each layer is considered to be responsible for a different part of the communications.\cite{CompTech:NetGuide:NetProtoLevels}
+  \begin{enumerate}
+   \item Physical Layer
+   \item Data Link Layer
+   \item Network Layer
+   \item Transport Layer
+   \item Session Layer
+   \item Presentation Layer
+   \item Application Layer
+  \end{enumerate}
+ \end{description}
+\end{slide}
+
+\begin{slide}{Network Models (cont.)}
+ Two most commonly used network models
+ \begin{description}
+  \item[DOD Model] Four layer architecture, originally designed for the Dept. of Defense.\cite{CompTech:NetGuide:NetProtoLevels} We will sometimes use this as
+                   a short-hand model for describing TCP/IP networks.
+   \begin{enumerate}
+    \item Link Layer
+    \item Network Layer
+    \item Transport Layer
+    \item Application Layer
+   \end{enumerate}
+ \end{description}
+\end{slide}
+
+\begin{slide}{References}
+ \bibliographystyle{plain}
+ \bibliography{cyberdef}
+\end{slide}
+\end{document}
