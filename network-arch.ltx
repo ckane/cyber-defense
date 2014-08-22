@@ -2,13 +2,12 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{epsfig}
-\usepackage{anyfontsize}
 \usepackage{url}
 \pdsetup{
  lf=Cyber Defense Overview,
- rf=Network Architecture \& the Attack Landscape
+ rf=Network Architecture \& Topology
 }
-\title{Network Architecture \& the Attack Landscape}
+\title{Network Architecture \& Topology}
 \author{Coleman Kane\\Coleman.Kane@ge.com}
 \begin{document}
 \maketitle
@@ -65,8 +64,61 @@
  \end{description}
 \end{slide}
 
+\begin{slide}{Switched networks}
+ \begin{itemize}
+  \item In a switched network, everyone connected to the same switch (a bridge) can identify everyone else connected to it, but only
+   the two endpoints of a coversation may observe the content of that traffic.
+  \item The switch will negotiate with each device physically connected to the switch to determine what host addresses are accessible
+   on the connected port, and the switch will retain a record of these. This enables multiple switches to maintain internal pictures
+   of the network, when interconnected.
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{Example Network "A"}
+ A "primary" corporate network. A1 can talk to A3, without A2 or A4 being able to see the content.
+ \begin{figure}
+  \epsfig{file=4user-net.eps,height=2.25in}
+ \end{figure}
+\end{slide}
+
+\begin{slide}{Example Network "B"}
+ A "remote", secondary corporate network. B2 can talk to B1 directly.
+ \begin{figure}
+  \epsfig{file=2user-net.eps,height=2.25in}
+ \end{figure}
+\end{slide}
+
+\begin{slide}{Routing between the two}
+ Join the two networks via a Router
+ \begin{itemize}
+  \item Router can observe all traffic from any host in one network communicating with any host in another network
+  \item Architectural "choke point" \& partitioning tool
+  \item Architectural "visibility" enforcement tool
+  \item While a firewall is a separate concept, modern routers typicall incorporate firewalls within the same box
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{Routing A to B}
+ Join example "A" to "B" so that users on each network may communicate with one another. Still two partitioned networks,
+ but we've added functionality to "route" certain traffic types to each one.
+ \begin{figure}
+  \epsfig{file=router-1.eps,height=1.75in}
+ \end{figure}
+\end{slide}
+
+\begin{slide}{Adding Firewalls}
+ Firewalls can perform traffic inspection to determine if certain traffic should even be routed to the remote network, and
+ vice-versa.
+
+ There are now \textbf{4 partitions} to the network, after the addition of the two firewalling points.
+ \begin{figure}
+  \epsfig{file=router-firewall-1.eps,height=1.5in}
+ \end{figure}
+\end{slide}
+
 \begin{slide}{References}
  \bibliographystyle{plain}
  \bibliography{cyberdef}
 \end{slide}
+
 \end{document}
