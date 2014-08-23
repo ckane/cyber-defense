@@ -1,0 +1,42 @@
+\documentclass[style=elcolors, mode=present]{powerdot}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{url}
+\pdsetup{
+ lf=Cyber Defense Overview,
+ rf=DMZ Architecture
+}
+\title{DMZ Architecture}
+\author{Coleman Kane\\Coleman.Kane@ge.com}
+\begin{document}
+\maketitle
+
+\begin{slide}{DeMilitarized Zone (DMZ)}
+ \textbf{Korea}: Example of a real-life DMZ. The 150-mile wide Korean DMZ was established between north and south
+  Korea in an agreement to halt the fighting in the Korean War, in 1953. Access by either country to
+  the DMZ is tightly controlled, while the DMZ itself is closely monitored for unauthorized intrusion.
+ \begin{figure}
+  \epsfig{file=korea-dmz.eps,height=1.25in}
+  \caption{Korean Peninsula DMZ\cite{BBCNews:KoreaDMZ}}
+ \end{figure}
+\end{slide}
+
+\begin{slide}{Purpose}
+ Both North \& South Korean geo-political interests are served by establishing this DMZ. The purpose of
+ this "land barrier" is to maintain a buffer zone between both countries so as to make it nearly impossible
+ to pass from one country to another.
+ \begin{itemize}
+  \item Access to North Korea is limited primarily to residents, as well as its geo-political allies to the north, namely: China \& Russia
+  \item Access to South Korea is restricted primarily to residents, as well as its geo-political allies, who mostly are transported by sea, such
+        as from Japan and the USA.
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{References}
+ \bibliographystyle{plain}
+ \bibliography{cyberdef}
+\end{slide}
+
+\end{document}
