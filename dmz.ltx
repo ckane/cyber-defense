@@ -34,6 +34,22 @@
  \end{itemize}
 \end{slide}
 
+\begin{slide}{Network DMZ}
+ Similar methodology can be applied to network design, especially using the router + firewall example from earlier, with the exception that
+ we can also utilize a network "DMZ" as a parition in which to host systems.
+ {\footnotesize \begin{itemize}
+  \item Within the DMZ, systems have tightly-controlled access to the rest of the corporate network.
+  \item Access to the Internet may or may not be as tightly controlled as it is for the corporate network.
+  \item If an attacker intrudes upon the DMZ, they only have access to other DMZ-based servers, but not necessarily private corporate systems
+  \item Targeted monitoring \& instrumentation around the perimeter of the DMZ may assist in detecting and responding to adversary
+        activity within the DMZ as they attempt to scan this environment, with minimal exposure to the actual sensitive resources.
+ \end{itemize}}
+\end{slide}
+
+\begin{slide}{The Internet: Just a big network}
+ The Internet is conceptually just a big network containing "everyone else", and therefore can fit into one side of our earlier diagram
+\end{slide}
+
 \begin{slide}{References}
  \bibliographystyle{plain}
  \bibliography{cyberdef}
