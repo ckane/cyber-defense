@@ -1,0 +1,60 @@
+\documentclass[style=elcolors, mode=present]{powerdot}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{url}
+\pdsetup{
+ lf=Cyber Defense Overview,
+ rf=Virtual Hosting / Machines
+}
+\title{Virtual Hosting \& Virtual Machines}
+\author{Coleman Kane\\Coleman.Kane@ge.com}
+\begin{document}
+\maketitle
+
+\begin{slide}{Virtual Hosting}
+ Similar to the network partitioning schemes described previously, there exist a menu of options that
+ enable a single piece of server hardware to be paritioned so as to provide varying levels of isolation
+ to the applications and users served by this hardware.
+\end{slide}
+
+\begin{slide}{Common Virt. Hosting Schemes}
+ Virtual hosting methods to be covered:
+ \begin{description}
+  \item[Environment:] Apache virtual-hosting, Java VM
+  \item[OS Level:] chroot, Jails, User-mode-Linux
+  \item[Hypervisors:] VirtualBox, VMWare, Xen
+  \item[Emulation:] Bochs, VMWare \& VirtualBox under special configuration
+ \end{description}
+\end{slide}
+
+\begin{slide}{Environment Virtual Hosting}
+ In {\em Environment Virtual Hosting}, virtualization of the hosted applications are configured within
+ the space of another application instance (typically a parent instance).
+\end{slide}
+
+\begin{slide}{Environment Virtual Hosting (cont.)}
+ Generally the following ground rules are true:
+ {\small\begin{itemize}
+  \item The administrator of the server hardware has full visibility and control inside the virtual environments
+  \item The virtual applications may share, privileges, storage and RAM, unless specifically configured not to
+  \item Virtual processes are still visible to each other on the server-side
+  \item The shared nature of the infrastructure is generally opaque to the end-user, but counter-measures must be 
+        authored into the applications in order to ensure this remains true.
+  \item Compromising one virtual server can put all other virtual servers at risk
+ \end{itemize}}
+\end{slide}
+
+\begin{slide}{Further Reading}
+ {\tiny \begin{itemize}
+  \item \textbf{Apache "VirtualHost" examples}: \url{http://httpd.apache.org/docs/2.2/vhosts/examples.html}
+  \item \textbf{Best Practices for UNIX chroot() Operations}: \url{http://www.unixwiz.net/techtips/chroot-practices.html}
+  \item \textbf{FreeBSD Handbook, Chapter 15. Jails}: \url{http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/jails.html}
+  \item \textbf{User Mode Linux}: \url{http://usermodelinux.org/}
+  \item \textbf{VirtualBox Documentation}: \url{https://www.virtualbox.org/wiki/Documentation}
+  \item \textbf{Xen Project}: \url{http://www.xenproject.org/}
+ \end{itemize}}
+\end{slide}
+
+\end{document}
