@@ -61,6 +61,24 @@
  \end{figure}
 \end{slide}
 
+\begin{slide}{Internal DMZ}
+ Sometimes you might want to protect an internal project, team, or storage network from exposure.
+ \begin{figure}
+  \epsfig{file=dmz2.eps,height=1.5in}
+ \end{figure}
+ The firewall protecting D1 could be configured to only allow communication with A1.
+\end{slide}
+
+\begin{slide}{DMZ Review}
+ Through selective partitioning of the network, it is possible to:
+ \begin{itemize}
+  \item Divide your systems into isolated enclaves, which may ease maintenance
+  \item Provide extra layers of protection to reduce risks due to compromises of specific systems
+  \item Force network traffic to follow a specific and defined path, by policy, when it involves communication between two networks and/or devices
+  \item Temporarily contain intrusions, providing ample time to respond
+ \end{itemize}
+\end{slide}
+
 \begin{slide}{References}
  \bibliographystyle{plain}
  \bibliography{cyberdef}
