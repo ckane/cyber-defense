@@ -52,6 +52,20 @@
  \end{figure}
 \end{slide}
 
+\begin{slide}{OS-Level Virtual Hosting}
+ Provides the following features beyond the \textbf{Environment} virtual hosting
+ {\small\begin{itemize}
+  \item Can be rooted at a sub-path in the filesystem, restricted from reads/writes outside
+        of this zone
+  \item Requires a dedicated instance of the service for each virtual host
+  \item Lacks dedicated allocation, still competes for system resources,
+        but executes with significantly limited visibility to other services
+  \item Individual applications need not be specially configured, and will be relatively
+        isolated from one another
+  \item Networking and IPC may still be possible between isolation environments
+ \end{itemize}}
+\end{slide}
+
 \begin{slide}{Further Reading}
  {\tiny \begin{itemize}
   \item \textbf{Apache "VirtualHost" examples}: \url{http://httpd.apache.org/docs/2.2/vhosts/examples.html}
