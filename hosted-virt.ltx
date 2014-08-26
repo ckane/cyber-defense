@@ -53,6 +53,17 @@
 \end{slide}
 
 \begin{slide}{OS-Level Virtual Hosting}
+ With OS-Level virtualization, you set up independent deployments of whole application stacks
+ which cannot share each others' configurations, libraries, modules, etc. Configuration of the
+ virtual environments hosting these deployments will either be configured at the supervisor OS
+ level, or via specialized "no return" system calls which request that the OS isolate all future
+ execution and child processes.
+ \par
+ In the case of \textbf{User Mode Linux}, a wholly-contained execution environment is created to
+ run a different Linux kernel as a subprocess of a parent kernel, as a new application.
+\end{slide}
+
+\begin{slide}{OS-Level Virtual Hosting (cont.)}
  Provides the following features beyond the \textbf{Environment} virtual hosting
  {\small\begin{itemize}
   \item Can be rooted at a sub-path in the filesystem, restricted from reads/writes outside
@@ -64,6 +75,13 @@
         isolated from one another
   \item Networking and IPC may still be possible between isolation environments
  \end{itemize}}
+\end{slide}
+
+\begin{slide}{OS-Level Virtual Hosting (dia.)}
+ \begin{figure}
+  \epsfig{file=os-level-virtualization.eps,height=2in}
+ \end{figure}
+ Extra cost is incurred by duplicating applications which were shared under application-level virtual hosting
 \end{slide}
 
 \begin{slide}{Further Reading}
