@@ -84,6 +84,25 @@
  Extra cost is incurred by duplicating applications which were shared under application-level virtual hosting
 \end{slide}
 
+\begin{slide}{Hypervisor}
+ A hypervisor further pushes isolation logic up to the hardware level. Requiring special hardware features, the
+ hypervisor can natively execute code while maintaining lmost complete resource isolation between the instances.
+ With a few small exceptions, the virtual hosts will execute as completely dedicated OS deployments, requiring
+ complete OS + application installation within the virtual guest instances.
+ \par
+ Parent OS is called "host", while the children are called "guests".
+\end{slide}
+
+\begin{slide}{Hypervisor (cont.)}
+ {\small\begin{itemize}
+  \item Execute most code natively, but expose a false hardware representation to the "guest" OS
+  \item Selectively allocate HW devices to guests
+  \item Dedicate resources or limit resource with fine granularity
+  \item Abstracted hardware enables suspend, move, restore, close, snapshot of running guest states
+  \item Most common virtualization associated with "the cloud"
+ \end{itemize}}
+\end{slide}
+
 \begin{slide}{Hypervisor (dia.)}
  \begin{figure}
   \epsfig{file=hypervisor.eps,height=2.25in}
