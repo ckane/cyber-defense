@@ -109,6 +109,30 @@
  \end{figure}
 \end{slide}
 
+\begin{slide}{Emulator}
+ Emulators provide an environment which attempts to implement, in software, an entire architecture. The
+ goal is to provide a method to execute the code in a manner which most closely replicates the underlying
+ system in which the software would execute. Minimal assistance is provided by the host operating system,
+ and typically no kernel-level or other supervisory hooks are required. The entire virtualized HW \& SW
+ stacks live entirely in user-space.
+\end{slide}
+
+\begin{slide}{Emulator (cont.)}
+ {\small\begin{itemize}
+  \item All code is executed at the application layer
+  \item Absolutely zero access to the host operating system
+  \item Host can execute guest code which is incompatible with host architecture (PPC on x86, etc.)
+  \item 100\% visibility into hardware-level operations
+  \item Very slow execution
+ \end{itemize}}
+\end{slide}
+
+\begin{slide}{Emulator (dia.)}
+ \begin{figure}
+  \epsfig{file=emulator.eps,height=2.25in}
+ \end{figure}
+\end{slide}
+
 \begin{slide}{Further Reading}
  {\tiny \begin{itemize}
   \item \textbf{Apache "VirtualHost" examples}: \url{http://httpd.apache.org/docs/2.2/vhosts/examples.html}
@@ -117,6 +141,7 @@
   \item \textbf{User Mode Linux}: \url{http://usermodelinux.org/}
   \item \textbf{VirtualBox Documentation}: \url{https://www.virtualbox.org/wiki/Documentation}
   \item \textbf{Xen Project}: \url{http://www.xenproject.org/}
+  \item \textbf{QEMU Project}: \url{http://wiki.qemu.org/Main_Page} (emu. for x86, PowerPC, SPARC 32/64, MIPS, ARM)
  \end{itemize}}
 \end{slide}
 
