@@ -102,9 +102,109 @@
  \end{figure}
 \end{slide}
 
+\begin{slide}{Alert Data}
+ Alert data is the monitoring data which is intended to be used to drive investigation \& work. While Flow \& Transactional
+ data is intended to log a small amount of the total data from all network traffic (80/20 rule), alert data is intended to
+ identify to analysts where/when occurred the specific network traffic which is highly suspicious, and necessitates being
+ investigated.
+
+ \begin{itemize}
+  \item Identifies where to look in your transaction logs \& packet capture archives quickly
+  \item "Best guess" alert as to what attack might be happening
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{Alert Tools}
+ \begin{description}
+  \item[Snort] One of the oldest signature-based packet analysis tools \url{https://www.snort.org/}
+  \item[Suricata] Newer signature-based packet analysis tool, similar to Snort \url{http://suricata-ids.org/}
+  \item[Bro] Newer versions have signature analysis capability on top of the transactional parsing capabilities \url{https://www.bro.org/}
+  \item[SourceFire] Now owned by Cisco Systems \url{http://www.sourcefire.com/}, based upon Snort
+  \item[HP TippingPoint] Firewal \& IDS \url{http://www.tippingpoint.com}
+ \end{description}
+\end{slide}
+
+\begin{slide}{Alert Management Tools}
+ These tools can be used for managing response to alerts
+ \begin{description}
+  \item[RT] Best Practical Request Tracker, has a module for incident response called "RTIR"
+  \item[Sguil] Very popular alert management/handling console \url{http://nsmwiki.org}
+  \item[Commercial] A lot of commercial IDS systems provide a custom console for managing alerts
+  \item[ArcSight] "SEIM" tool which can help manage alerts across multiple IDS/IPS tools
+ \end{description}
+\end{slide}
+
+\begin{slide}{Alert Data Graphic}
+ \begin{figure}
+  \epsfig{file=sguil_main.eps,height=2.25in}
+  \caption{\small Sguil with a bunch of Snort alerts}
+ \end{figure}
+\end{slide}
+
+\begin{slide}{Packet Capture}
+ Packet capture is the mechanism by which full or partial network traffic is archived for analysis. Some sensors
+ implement continuous recording of traffic to a storage device, in the event that it needs to be retrieved in response
+ to alerting in the future. This is commonly referred to as "\textbf{full packet capture}", and storage is typically
+ managed in a FIFO.
+\end{slide}
+
+\begin{slide}{Packet Capture Tools}
+ You should already be familiar with:
+ \begin{itemize}
+  \item WireShark, tshark
+  \item Tcpdump
+ \end{itemize}
+
+ Also:
+ \begin{itemize}
+  \item NetSniff-NG \url{http://netsniff-ng.org/}
+  \item IPCopper \url{http://www.ipcopper.com/}
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{Packet Capture Purpose}
+ Reasons for implementing packet capture:
+ \begin{itemize}
+  \item You might only learn of an attack after it happens
+  \item Many alerts built for later-stages of intrusion, but you want to learn entire attack
+  \item User traffic baselining
+  \item Reference "good" traffic sampling
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{Stream Capture}
+ Step above packet capture, and typically assists in stream analysis and forensics. Packet capture will have all
+ data objects broken up into individual packets, and must be reassembled using network tools. Additionally, forensics
+ on this data set need to be performed by a networking expert. Storing reassembled files, machine-to-machine conversations
+ and other stream objects can improve forensic analysis and enable more participants to help analyze. Some attacks can
+ only be identified at this level, too.
+\end{slide}
+
+\begin{slide}{Bro Capture}
+ Bro NSM supports two capture methods:
+ \begin{itemize}
+  \item File capture/carving
+  \item Stream capture carving
+  \item Configurable filtering for both
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{Monitoring Stack}
+ In many cases, network monitoring doesn't come down to a single implementation from above, but rather a sensor software stack
+ built out of multiple components to fill your network gaps.
+\end{slide}
+
+\begin{slide}{Security Onion Linux}
+ \begin{itemize}
+  \item Turn-key implementation of Ubuntu Linux to provide a complete software stack using the best open-source projects for monitoring
+  \item \url{http://blog.securityonion.net/p/securityonion.html}
+  \item Named "security onion" to reflect the many layers it is built from
+  \item Easy, scripted install, and designed to run in a VirtualBox environment
+ \end{itemize}
+\end{slide}
+
 \begin{slide}{References}
  \bibliographystyle{plain}
  \bibliography{cyberdef}
 \end{slide}
-
 \end{document}
