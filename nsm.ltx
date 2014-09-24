@@ -1,0 +1,103 @@
+\documentclass[style=elcolors, mode=present]{powerdot}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{epsfig}
+\usepackage{anyfontsize}
+\usepackage{url}
+\pdsetup{
+ lf=Cyber Defense Overview,
+ rf=Network Security Monitoring
+}
+\title{Network Security Monitoring}
+\author{Coleman Kane\\Coleman.Kane@ge.com}
+\begin{document}
+\maketitle
+
+\begin{slide}{Passive Monitoring}
+ Passive monitoring analyzes traffic with the intention of being non-disruptive to the transmission of the traffic. Typically used
+ in environments where high-network-availability is critical. This is typical in many coporate environments where the network supports
+ a considerably large user base. As such, there are numerous solutions out there which provide passive network and host monitoring.
+\end{slide}
+
+\begin{slide}{Levels of Network Monitoring}
+ There are various approaches to network monitoring which range from basic "flow data" to full packet capture, and even beyond.
+ {\small \begin{description}
+  \item[Flow data] Logs per-packet endpoint information, optionally including packet sizes. Common for aggregate reporting to determine
+                   activity anomolies between your network and specific external or internal hosts.
+  \item[Transaction data] Logs deeper connection-level information, which may span multiple packets within a connection. Must have pre-defined
+                          templates for protocol formatting. Common for logging HTTP header/request information, SMTP command data, etc.
+  \item[Alert data] Typically the result of finely-tuned signatures matching against packet content, and similar in nature to transaction data. This
+                    information, rather than being for logging purposes is intended to indicate discrete events which might be attacks.
+ \end{description}}
+\end{slide}
+
+\begin{slide}{Levels of Network Monitoring 2}
+ {\small \begin{description}
+  \item[Packet capture] Full capture of packet-level contents (sometimes called \textbf{pcap}). This is roughly identical to what the OS sees on
+                        the wire
+  \item[Reassembly] Beyond packet-level capture, this functionality involves transport/application recognition and can reassemble IP packets into
+                    TCP stream data, or even parse application-level communications to rebuild a conversation, file transfer, or even email.
+ \end{description}}
+\end{slide}
+
+\begin{slide}{Flow Data}
+ Per-packet statistics, sometimes including connection/packet-counting. The goal of this is to determine how much traffic (either counts or bytes)
+ is \textbf{flowing} into or out of a particular host. Distributed across the network and combined with centralized aggregation of data from many
+ sensors, you can build a picture of your network to help you identify "high traffic" entities which might indicate a problem (such as active data
+ theft).
+\end{slide}
+
+\begin{slide}{Flow Data Graphic}
+ \begin{figure}
+  \epsfig{file=snorby-flow.eps,height=2.25in}
+  \caption{Flow Data in Snorby\cite{SO:2014:Jan:ManagingAlerts}}
+ \end{figure}
+\end{slide}
+
+\begin{slide}{Flow Data Management Tools}
+ Example tools which capture/analyze flow data
+ {\scriptsize\begin{description}
+  \item[cxtracker] \url{http://www.gamelinux.org/?cat=21} \url{https://github.com/gamelinux/cxtracker/}
+  \item[SANCP] \url{http://www.metre.net/sancp.html}
+  \item[Cisco NetFlow Collector]
+   \href{http://www.cisco.com/c/en/us/products/cloud-systems-management/netflow-collection-engine/index.html}
+         {\texttt{http://www.cisco.com/c/en/us/products/cloud-systems-management/}}
+   \href{http://www.cisco.com/c/en/us/products/cloud-systems-management/netflow-collection-engine/index.html}{\texttt{netflow-collection-engine/index.html}}
+  \item[Arbor PeakFlow] \url{http://www.arbornetworks.com/products/peakflow/sp}
+  \item[netstat] With \texttt{-s/--statistics} option on Linux (\texttt{-m} on BSD \& MacOS X) can report host-local flow information per interface. Endpoints
+                 could log this info at regular intervals to centralized system to build endpoint flow database.
+ \end{description}}
+\end{slide}
+
+\begin{slide}{RFC 3176: sFlow standard}
+ Standard UDP-reporting mechanism for multiple devices to communicate "net flow" information amongst one another
+ \begin{itemize}
+  \item \url{http://www.sflow.org/}
+  \item \url{http://www.faqs.org/rfcs/rfc3176.html}
+  \item Products supporting the export and import of sFlow data: \url{http://www.sflow.org/products/index.php}
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{Transaction Data}
+ Sometimes lumped into \textbf{flow data} category. However, we will make the distinction that transaction data requires sensor-level parsing
+ that is traditionally not included in the base OS. For instance, transaction-level monitoring might involve parsing the \textbf{Referer} header
+ from HTTP traffic, usernames from FTP or Telnet traffic, or any other metadata which must be parsed via a prepared recipe, but gets reported while
+ associated traffic may be discarded after parsing is complete.
+\end{slide}
+
+\begin{slide}{Transaction Data Management Tools}
+ Example tools which handle/generate transaction data
+ {\scriptsize\begin{description}
+  \item[httpry] \url{http://dumpsterventures.com/jason/httpry/}
+  \item[bro] \url{https://www.bro.org/sphinx/httpmonitor/index.html} \url{https://www.bro.org/sphinx/mimestats/index.html}
+  \item[Colasoft Capsa] \url{http://www.colasoft.com/capsa-free/}
+  \item[Network Proxy] Most proxies can do this for you for HTTP \& FTP, sometimes more protocol support too
+ \end{description}}
+\end{slide}
+
+\begin{slide}{References}
+ \bibliographystyle{plain}
+ \bibliography{cyberdef}
+\end{slide}
+
+\end{document}
