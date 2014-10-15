@@ -1,0 +1,134 @@
+\documentclass[style=elcolors, mode=present]{powerdot}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{epsfig}
+\usepackage{anyfontsize}
+\usepackage{url}
+\pdsetup{
+ lf=Cyber Defense Overview,
+ rf=The Cyber Kill Chain\cite{LMCO:KillChain}
+}
+\title{Cyber Kill Chain\cite{LMCO:KillChain}}
+\author{Coleman Kane\\Coleman.Kane@ge.com}
+\begin{document}
+\maketitle
+
+\begin{slide}{Cyber Kill Chain Intro}
+ \begin{itemize}
+ \item The Cyber Kill Chain is a generalized attack model which attempts to describe the sequences of accomplishments,
+ or milestones, that an attack will need to proceed through in order to accomplish the intended objective
+ of the perpetrator.
+ \item While not intended to be a one-size-fits-all approach, the goal is to break an attack up
+ into discernable stages, to better describe the observed uses of certain tools as well as illustrate the
+ investment of the attacker at each phase, as well as to help define where and how actions of the attacker within
+ each phase might be detectable.
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{Phase 1: Recon}
+ There are seven phases defined by the Kill Chain, as described by Lockheed Martin. All of the definitions below are
+ verbatim, or slightly edited from the content in LMCO's \textit{Intelligence-Driven Computer Network Defense}
+ paper\cite{IntelCybDef:2011:LMCO}.
+ \begin{description}
+  \item[Reconnaissance] Research, identification and selection of targets, often represented as crawling
+                        Internet websites such as conference proceedings and mailing lists for email addresses, social
+                        relationships, or information on specific technologies.
+ \end{description}
+\end{slide}
+
+\begin{slide}{Phase 2: Weaponization}
+ \begin{description}
+  \item[Weaponization] Coupling a remote access, or other, tool with an exploit into a deliverable payload,
+                       typically by means of an automated tool (weaponizer). Increasingly, client application data files such
+                       as Adobe Portable Document Format (PDF) or Microsoft Objectivesce documents serve as the weaponized
+                       deliverable.
+ \end{description}
+
+ In this phase is where an attacker would also likely organize the rest of their toolchain, register new domain names if necessary,
+ and activate attack infrastructure.
+\end{slide}
+
+\begin{slide}{Phase 3: Delivery}
+ \begin{description}
+  \item[Delivery] Transmission of the weapon to the targeted environment. The three most prevalent
+                  delivery vectors for weaponized payloads by APT actors, as observed by the Lockheed Martin
+                  Computer Incident Response Team (LM-CIRT) for the years 2004-2010, are email attachments,
+                  websites, and USB removable media.
+ \end{description}
+
+ The attacker delivers the malicious payload to the target(s) at this stage. In many cases, this is also the Kill Chain
+ phase where the attack first crosses into the border of the defender's network.
+\end{slide}
+
+\begin{slide}{Phase 4: Exploitation}
+ \begin{description}
+  \item[Exploitation] After the weapon is delivered to victim host, exploitation triggers intruders' code.
+                      Most often, exploitation targets an application or operating system vulnerability, but it could also
+                      more simply exploit the users themselves or leverage an operating system feature that auto-executes
+                      code.
+ \end{description}
+
+ {\small This phase occurs when the attacker attempts to exploit a machine-level, network-level, or even human-level vulnerabilities in your
+ environment in order to proceed to the next phase. The goal of this phase is to achieve adequate level of access in the target environment
+ so as to install the backdoor.}
+\end{slide}
+
+\begin{slide}{Phase 5: Installation}
+ \begin{description}
+  \item[Installation] Installation of a remote access or other tool on the victim system allows the
+                      adversary to maintain persistence inside the environment.
+ \end{description}
+
+ Once exploitation has succeeded, the attackers' tools have established adequate access to the system. This access usually provides the attacker
+ with user-level or sometimes administrator-level access to the target environment. Using this access, the tools now must embed themselves in
+ the environment. The goal is to maintain "\textbf{persistence}" such that access can be resumed even if systems or whole networks are restarted.
+\end{slide}
+
+\begin{slide}{Phase 6: Command \& Control (C2)}
+ \begin{description}
+  \item[Command \& Control] Typically, compromised hosts must beacon outbound to an
+                            Internet controller server to establish a C2 channel. APT malware especially requires manual
+                            interaction rather than conduct activity automatically. Once the C2 channel establishes, intruders
+                            have "hands on the keyboard" access inside the target environment.
+ \end{description}
+
+ Once completed, this phase provides real-time access of the compromised system to the attacker, enabling them to access the contents of the system
+ and even enabling them to utilize the compromised host to gain further access, through impersonation, to other resources on the network.
+\end{slide}
+
+\begin{slide}{Phase 7: Actions On Objectives}
+ \begin{description}
+  \item[Actions On Objectives] {\tiny Only now, after progressing through the first six phases, can intruders
+                               take actions to achieve their original objectives. Typically, this objective is data exfiltration which
+                               involves collecting, encrypting and extracting information from the victim environment; violations
+                               of data integrity or availability are potential objectives as well. Alternatively, the intruders may
+                               only desire access to the initial victim box for use as a hop point to compromise additional systems
+                               and move laterally inside the network.}
+ \end{description}
+
+ {\small Finally, once real-time command-and-control is established, the intruder will then actually go after the intended purpose of their intrusion.
+         In some cases, this may be simply gaining access to systems for executing later attacks. Other times, this might be intended to steal sensitive
+         technical diagrams, formulas, access credentials for future intrusion attempts, or numerous other objectives}
+\end{slide}
+
+\begin{slide}{Risks \& Assessments}
+ \begin{itemize}
+  \item The imminent risk to the network is increased as the attacker gets into later phases of the kill chain
+  \item The investment (and thus, expense) on the part of the attacker also increases the later they get into the kill chain
+  \item One could say that: The value of detecting/preventing a serious attack increases the earlier you can accomplish it in the kill chain
+  \item The amount of information available regarding the nature of an attack increases in later stages of the kill chain
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{Cyber Kill Chain Phases}
+ ...continued from prior slide
+ \begin{description}
+  \item[Actions on Objectives]
+ \end{description}
+\end{slide}
+
+\begin{slide}{References}
+ \bibliographystyle{plain}
+ \bibliography{cyberdef}
+\end{slide}
+\end{document}
