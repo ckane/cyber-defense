@@ -48,6 +48,47 @@ which can be taken at the application configuration level for common services to
  \end{itemize}
 \end{slide}
 
+\begin{slide}{Proxy Server Uses}
+ A few applications for proxy servers:
+ \begin{itemize}
+  \item {\small Place an HTTPS proxy server in front of an HTTP server, gaining visibility on the encrypted network traffic without
+                sacrificing confidentiality or authentication}
+  \item {\small Route user traffic through a central device to enable filtering and policies}
+  \item {\small Conceal the underlying organization of a system using URL "rewrite" rules}
+  \item {\small Add authentication in front of an application without exposing the auth system to application vulnerabilities}
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{Network Applications}
+ Careful selection and configuration of network applications to provide desirable services (e.g. file sharing, e-mail, etc.) is an
+ important security practice. Keeping an inventory of your installed application base is also important to helping manage the
+ patching of your network. A few examples with discussion follow.
+\end{slide}
+
+\begin{slide}{File Sharing}
+ A common legacy Internet file-sharing protocol is called FTP (File Transfer Protocol). Many FTP servers come pre-configured with
+ authorization for unauthenticated "anonymous" users to write arbitrary into a public folder.
+
+ The SSH protocol (Secure SHell) now provides a similar encapsualted protocol called SFTP (Secure File Transfer Protocol), and there
+ exist many Windows-compatible applications compatible with it. Replacing FTP with SFTP where it is needed can be an effective mitication.
+\end{slide}
+
+\begin{slide}{E-Mail}
+ The original SMTP, POP3, and IMAP protocols were originally designed as plain-text protocols with simple authentication methods. Since
+ their publication, a number of new features have been added:
+ \begin{itemize}
+  \item STARTTLS supporting secure-sockets with modern encryption
+  \item Challenge-based authentication
+  \item Mandatory authentication for non-local SMTP
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{Interactive CLI}
+ Historically, protocols such as Telnet and RSH (Remote SHell) were used to provide access. These protocols lacked modern authentication
+ and encryption. The SSH (Secure SHell) protocol was designed as a replacement for all the use-cases of these protocols, and to overcome
+ some of the inherent security flaws.
+\end{slide}
+
 \begin{slide}{References}
  \bibliographystyle{plain}
  \bibliography{cyberdef}
