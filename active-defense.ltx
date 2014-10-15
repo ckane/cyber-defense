@@ -1,0 +1,55 @@
+\documentclass[style=elcolors, mode=present]{powerdot}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{epsfig}
+\usepackage{anyfontsize}
+\usepackage{url}
+\pdsetup{
+ lf=Cyber Defense Overview,
+ rf=Active Defense
+}
+\title{Active Defense and Prevention}
+\author{Coleman Kane\\Coleman.Kane@ge.com}
+\begin{document}
+\maketitle
+
+\begin{slide}{Introduction}
+\textbf{Active Defense} and \textbf{Prevention} are the strategies employed to prevent, obstruct, or otherwise block unwanted
+access to the system. This lecture will discuss some preventative systems, an overview of their operation, as well as measures
+which can be taken at the application configuration level for common services to enforce protections against undesirable access.
+\end{slide}
+
+\begin{slide}{Firewalls}
+ IP firewalls can be used to parse the contents of packet headers and take action based upon the value of certain packet
+ header fields. In a \textbf{stateful} IP firewall, one action that can be taken is to update global state variables within 
+ a table which can then be used elsewhere in the firewall to conditionally apply rules/actions.
+\end{slide}
+
+\begin{slide}{Firewall Example}
+ Some examples using Linux's \texttt{iptables}. \texttt{iptables} uses a firewall appraoch where a list of firewall rules
+ are evaluated against every packet, and the first matching rule is used to determine the action to be taken. Linux supports
+ a "default" action, typically either a permissive "\textbf{ACCEPT}" or restrictive "\textbf{DROP}" action.
+ \begin{itemize}
+  \item{\tiny\texttt{iptables -A INPUT -s 192.168.0.4 -j ACCEPT \# Allow one client if default is DROP}}
+  \item{\tiny\texttt{iptables -A INPUT -s 192.168.0.0/24 -j ACCEPT \# Allow an entire network}}
+  \item{\tiny\texttt{iptables -A INPUT -p tcp --dport 6881 -j ACCEPT \# Allow all hosts on a certain port}}
+ \end{itemize}
+
+ Examples from CentOS IPTables HowTo\cite{CentOSIPTables:2014:Sep}
+\end{slide}
+
+\begin{slide}{Proxy Servers}
+ A \textbf{proxy server} is an application-level gateway which can be used to control access, hide implementation details from view,
+ and add visibility to application traffic. Some example proxy servers are:
+ \begin{itemize}
+  \item Privoxy {\tiny\texttt{\url{http://www.privoxy.org/}}}
+  \item Squid {\tiny\texttt{\url{http://www.squid-cache.org/}}}
+  \item Apache mod\_proxy {\tiny\texttt{\url{http://httpd.apache.org/docs/current/mod/mod_proxy.html}}}
+ \end{itemize}
+\end{slide}
+
+\begin{slide}{References}
+ \bibliographystyle{plain}
+ \bibliography{cyberdef}
+\end{slide}
+\end{document}
